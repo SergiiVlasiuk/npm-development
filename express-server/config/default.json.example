@@ -1,0 +1,11 @@
+/* The file contains configuration example.
+ to apply its you need:
+ - create default.json file in the same folder
+ - copy json bellow
+ - fix json configuration adding your credentials\domain\schema and so on
+*/
+{
+    "port": 5000,
+    "jwtSecret": "put here your jwt secret to get application access",
+    "mongoUri": "mongodb+srv://DB_USER_NAME:DB_PASSWORD@DOMAIN/SCHEMA_NAME?retryWrites=true&w=majority"
+}

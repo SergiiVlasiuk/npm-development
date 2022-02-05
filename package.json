@@ -1,0 +1,28 @@
+{
+    "name": "npm-development",
+    "version": "1.0.0",
+    "description": "development experiments using npm",
+    "main": "index.js",
+    "scripts": {
+        "express:dev-server": "npm run server --prefix express-server",
+        "dev": "concurrently \"npm run express:dev-server\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SergiiVlasiuk/npm-development.git"
+    },
+    "keywords": [
+        "express",
+        "backend",
+        "rest"
+    ],
+    "author": "Sergii Vlasiuk",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/SergiiVlasiuk/npm-development/issues"
+    },
+    "homepage": "https://github.com/SergiiVlasiuk/npm-development#readme",
+    "devDependencies": {
+        "concurrently": "^7.0.0"
+    }
+}
