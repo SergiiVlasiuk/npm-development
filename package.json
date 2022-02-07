@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "express:dev-server": "npm run server --prefix express-server",
-        "dev": "concurrently \"npm run express:dev-server\""
+        "react-client": "npm run start --prefix react-client",
+        "dev": "concurrently \"npm run express:dev-server\" \"npm run react-client\"",
+        "dev:express-react": "concurrently \"npm run express:dev-server\" \"npm run react-client\""
     },
     "repository": {
         "type": "git",

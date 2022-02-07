@@ -1,5 +1,8 @@
-const startMongo = require('./mongo.client')
+const { startMongo } = require('./mongo.client')
 
-module.exports = async function startServices() {
-  startMongo()
+async function startServices() {
+  console.log('start services...')
+  await startMongo()
 }
+
+module.exports.startServices = startServices

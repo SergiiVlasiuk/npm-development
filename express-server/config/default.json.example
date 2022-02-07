@@ -7,5 +7,5 @@
 {
     "port": 5000,
     "jwtSecret": "put here your jwt secret to get application access",
-    "mongoUri": "mongodb+srv://DB_USER_NAME:DB_PASSWORD@DOMAIN/SCHEMA_NAME?retryWrites=true&w=majority"
+    "mongoUri": "mongodb://mongoadmin:secret@localhost:27888/?retryWrites=true&w=majority"
 }
