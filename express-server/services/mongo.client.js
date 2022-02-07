@@ -1,11 +1,17 @@
 const mongoose = require('mongoose')
 const config = require('config')
 
-const startMongo = async function () {
+async function startMongo() {
+  console.log('start mongo client...')
   try {
     await mongoose.connect(config.get('mongoUri'), {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+    })
+    const db = mongoose.connection
+    db.on('error', console.error.bind(console, 'connection error:'))
+    db.once('open', function callback() {
+      console.log("h")
     })
     console.log('Mongo client connected succesfully')
   } catch (e) {
@@ -14,4 +20,4 @@ const startMongo = async function () {
   }
 }
 
-module.exports = startMongo
+module.exports.startMongo = startMongo
