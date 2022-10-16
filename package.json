@@ -7,7 +7,11 @@
         "express:dev-server": "npm run server --prefix express-server",
         "react-client": "npm run start --prefix react-client",
         "dev": "concurrently \"npm run express:dev-server\" \"npm run react-client\"",
-        "dev:express-react": "concurrently \"npm run express:dev-server\" \"npm run react-client\""
+        "dev:express-react": "concurrently \"npm run express:dev-server\" \"npm run react-client\"",
+        "interview": "npm run test --prefix interview-tasks",
+        "interview:test": "npm run test --prefix interview-tasks",
+        "interview:test:uncommitted": "npm run test:uncommitted --prefix interview-tasks",
+        "interview:test:watch": "npm run test:watch --prefix interview-tasks"
     },
     "repository": {
         "type": "git",

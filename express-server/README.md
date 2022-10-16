@@ -22,3 +22,10 @@ npm i bcryptjs jsonwebtoken express-validator
 // npm run server
 npm run start
 ```
+
+### Register | Login user
+
+```
+curl -d '{"email":"your-email@ukr.net", "password":"Your-pas$w0rd"}' -H "Content-Type: application/json" -X POST 'http://localhost:5000/api/auth/register'
+curl -d '{"email":"your-email@ukr.net", "password":"Your-pas$w0rd"}' -H "Content-Type: application/json" -X POST 'http://localhost:5000/api/auth/login'
+```
