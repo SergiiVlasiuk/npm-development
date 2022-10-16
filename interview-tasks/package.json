@@ -1,0 +1,23 @@
+{
+    "name": "interview-tasks",
+    "version": "1.0.0",
+    "description": "learning purpose",
+    "main": "app.js",
+    "scripts": {
+        "test": "jest",
+        "test:uncommitted": "jest -o",
+        "test:watch": "jest --watch --verbose",
+        "test:watch:verbose": "jest --watch --verbose",
+        "start": "nodemon app.js"
+    },
+    "keywords": [
+        "interview",
+        "tasks",
+        "test"
+    ],
+    "author": "Sergii Vlasiuk <Sergii.Vlasiuk@ukr.net>",
+    "license": "ISC",
+    "devDependencies": {
+        "jest": "^29.0.3"
+    }
+}

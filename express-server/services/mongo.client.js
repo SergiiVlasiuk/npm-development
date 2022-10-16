@@ -11,7 +11,7 @@ async function startMongo() {
     const db = mongoose.connection
     db.on('error', console.error.bind(console, 'connection error:'))
     db.once('open', function callback() {
-      console.log("h")
+      console.log("callback")
     })
     console.log('Mongo client connected succesfully')
   } catch (e) {
