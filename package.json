@@ -11,7 +11,8 @@
         "interview": "npm run test --prefix interview-tasks",
         "interview:test": "npm run test --prefix interview-tasks",
         "interview:test:uncommitted": "npm run test:uncommitted --prefix interview-tasks",
-        "interview:test:watch": "npm run test:watch --prefix interview-tasks"
+        "interview:test:watch": "npm run test:watch --prefix interview-tasks",
+        "jest:test": "npm run test --prefix jest-examples"
     },
     "repository": {
         "type": "git",
