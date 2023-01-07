@@ -24,4 +24,5 @@ npm i --save-dev sinon
 npm i --save-dev @types/sinon
 npm i --save-dev ts-sinon
 npm i --save-dev chai
+npm i --save-dev jest-matcher-utils
 ```

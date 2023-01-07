@@ -9,16 +9,20 @@
     "outDir": "dist",
     "skipLibCheck": true,
     "declaration": true,
-    "strict": true,
-    "noImplicitAny": true,
+    // "strict": true,
+    // "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "noUnusedLocals": true,
     "noImplicitReturns": true,
+    "allowJs": true,
     "noFallthroughCasesInSwitch": true,
-    "skipDefaultLibCheck": true
+    "skipDefaultLibCheck": true,
+    "lib": [
+      "ES6"
+    ],
   },
   "lib": [
     "ES6"
