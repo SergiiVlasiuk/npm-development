@@ -1,19 +1,30 @@
-const { Router } = require('express')
-const bcrypt = require('bcryptjs')
-const config = require('config')
-const jwt = require('jsonwebtoken')
-const { check, validationResult } = require('express-validator')
-const User = require('../models/User')
+// const { Router } = require('express')
+// const bcrypt = require('bcryptjs')
+// const config = require('config')
+// const jwt = require('jsonwebtoken')
+// const { check, validationResult } = require('express-validator')
+// const User = require('../models/User')
+import { Router } from 'express'
+import bcrypt from 'bcryptjs'
+import config from 'config'
+import jwt from 'jsonwebtoken'
+import { check, validationResult } from 'express-validator'
+import User from '../models/User.js'
 const router = Router()
-
 
 // /api/auth/register
 // curl -d '{"email":"your-email", "password":"your-password"}' -H "Content-Type: application/json" -X POST 'http://localhost:5000/api/auth/register'
-router.post('/register',
+router.post(
+  '/register',
   [
     check('email', 'Incorrect email').isEmail(),
-    check('password', 'Minimal length of password must be 6 characters').isLength({ min: 6 }),
-    check('password', 'Please change password place holder').not().equals('your-password'),
+    check(
+      'password',
+      'Minimal length of password must be 6 characters'
+    ).isLength({ min: 6 }),
+    check('password', 'Please change password place holder')
+      .not()
+      .equals('your-password'),
   ],
   async (req, res) => {
     const errors = validationResult(req)
@@ -21,7 +32,7 @@ router.post('/register',
     if (!errors.isEmpty()) {
       return res.status(400).json({
         errors: errors.array(),
-        message: 'Please, correct your registration data'
+        message: 'Please, correct your registration data',
       })
     }
     try {
@@ -40,16 +51,20 @@ router.post('/register',
       res.status(201).json({ message: 'User registered successfully' })
     } catch (e) {
       console.log('issue: ', e)
-      res.status(500).json({ message: 'Server error. Please, try again later.' })
+      res
+        .status(500)
+        .json({ message: 'Server error. Please, try again later.' })
     }
-  })
+  }
+)
 
 // /api/auth/login
 // curl -d '{"email":"your-email", "password":"your-password"}' -H "Content-Type: application/json" -X POST 'http://localhost:5000/api/auth/login'
-router.post('/login',
+router.post(
+  '/login',
   [
     check('email', 'Please enter correct email').normalizeEmail().isEmail(),
-    check('password', 'Password can\'t be empty').exists()
+    check('password', "Password can't be empty").exists(),
   ],
   async (req, res) => {
     try {
@@ -58,7 +73,7 @@ router.post('/login',
       if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
-          message: 'Incorrect credentials'
+          message: 'Incorrect credentials',
         })
       }
 
@@ -71,17 +86,18 @@ router.post('/login',
         return res.status(400).json({ message: 'Incorrect credentials' })
       }
 
-      const token = jwt.sign(
-        { userId: user.id },
-        config.get('jwtSecret'),
-        { expiresIn: '1h' }
-      )
+      const token = jwt.sign({ userId: user.id }, config.get('jwtSecret'), {
+        expiresIn: '1h',
+      })
 
       res.json({ token, userId: user.id })
-
     } catch (e) {
-      res.status(500).json({ message: 'Server error. Please, try again later.' })
+      res
+        .status(500)
+        .json({ message: 'Server error. Please, try again later.' })
     }
-  })
+  }
+)
 
-module.exports = router
+// module.exports = router
+export default router
